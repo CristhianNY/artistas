@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-register-page',
@@ -12,7 +13,8 @@ export class RegisterPageComponent implements OnInit {
   public password:string;
   constructor(
     public authServices: AuthService,
-    public router: Router) { 
+    public router: Router,
+    public flashMessage: FlashMessagesService) { 
    
   }
 
@@ -22,9 +24,12 @@ export class RegisterPageComponent implements OnInit {
   onSubmitAddUser(){
     this.authServices.registerUser(this.email,this.password)
     .then((res)=>{
+      this.flashMessage.show('Usuario Creado Correctamente',
+      {cssClass: 'alert-success', timeout:4000});
      this.router.navigate(['/admin']);
     }).catch( (err) =>{
-      console.log("Error");
+      this.flashMessage.show("No se puede registrar este Correo",
+      {cssClass: 'alert-danger', timeout:4000});
       
     });
   }
