@@ -11,16 +11,25 @@
       </li>
     </ul>
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item active"*ngIf="!isLogin">
+      <li class="nav-item active" *ngIf="!isLogin">
         <a class="nav-link" href="#" routerLink="/login">Login </a>
       </li>
       <li class="nav-item" *ngIf="!isLogin">
         <a class="nav-link" href="#" routerLink="/registrarse">Registrarse</a>
       </li>
+      <i class="nav-item">
+          <a class="nav-link">{{userName}}</a>
+        </i>
+        <i class="nav-item">
+        <img src="{{userPicture}}"  class="rounded-circle" *ngIf="isLogin">
+        <span class="badge pill badge-secundary">{{userEmail}}</span>
+          </i>
       <li class="nav-item" *ngIf="isLogin">
         <a class="nav-link" (click)="logOut()" href="#">Salir</a>
       </li>
+   
 
     </ul>
+    
   </div>
 </nav>

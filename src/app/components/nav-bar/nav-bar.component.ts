@@ -10,7 +10,8 @@ import { auth } from 'firebase';
 export class NavBarComponent implements OnInit {
 public isLogin: boolean;
 public userName: string;
-public emailUser: string;
+public userEmail: string;
+public userPicture : string;
 
   constructor(
     public authervice: AuthService
@@ -21,7 +22,8 @@ public emailUser: string;
       if(auth){
         this.isLogin = true;
         this.userName = auth.displayName;
-        this.emailUser = auth.email;
+        this.userEmail = auth.email;
+        this.userPicture = auth.photoURL;
       }else{
         this.isLogin =false;
       }
