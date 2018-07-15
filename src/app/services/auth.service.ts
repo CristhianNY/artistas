@@ -18,6 +18,11 @@ export class AuthService {
     err => reject (err));
     });
   }
+  
+  loginWithTwitter(){
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+  }
+
   loginWithFacebook(){
     return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
