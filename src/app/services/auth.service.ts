@@ -18,6 +18,9 @@ export class AuthService {
     err => reject (err));
     });
   }
+  loginWithFacebook(){
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
   loginGoogle(){
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 

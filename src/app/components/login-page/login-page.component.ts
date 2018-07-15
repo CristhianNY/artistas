@@ -31,6 +31,14 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(["/login"]);
     });
   }
+  onClickFacebookLogin(){
+    this.authService.loginWithFacebook()
+    .then((res)=>{
+      this.router.navigate(['/admin']);
+    }).catch((err)=>{
+      console.log(err);
+    });
+  }
   onClickGoogleLogin(){
   
     this.authService.loginGoogle()
