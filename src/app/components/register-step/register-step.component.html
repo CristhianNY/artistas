@@ -1,0 +1,29 @@
+<form-wizard>
+    <wizard-step [title]="'Paso 1'" [isValid]="emailForm.form.valid">
+      <h1>Nombre</h1>
+      <form #emailForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombre del anuncio </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del grupo o del anuncio"
+            required>
+          <small id="emailHelp" class="form-text text-muted">Este sera el nombre que aparecera en tu anuncio.</small>
+        </div>
+      </form>
+    </wizard-step>
+    <wizard-step [title]="'Paso 2'" >
+      <h1>Step2</h1>
+    </wizard-step>
+    <wizard-step [title]="'Paso 3'">
+      <h1>Step3</h1>
+    </wizard-step>
+    <wizard-step [title]="'Paso 4'" >
+      <div [ngSwitch]="isCompleted">
+        <div *ngSwitchDefault>
+          <h1>Step4</h1>
+        </div>
+        <div *ngSwitchCase="true">
+          <h4>Gracias por favor confirma tu correo electronico.</h4>
+        </div>
+      </div>
+    </wizard-step>
+  </form-wizard>

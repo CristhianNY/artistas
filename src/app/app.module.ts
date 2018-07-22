@@ -15,7 +15,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AuthService} from './services/auth.service'
 import {environment} from '../environments/environment';
 import {AuthGuard} from './guards/auth.guard';
-
+import { FormWizardModule } from 'angular2-wizard';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import { UserTypeComponent } from './components/user-type/user-type.component';
@@ -30,6 +30,8 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermComponent } from './components/term/term.component';
 import { ListBandsComponent } from './components/list-bands/list-bands.component';
 import { PayoutsComponent } from './components/payouts/payouts.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterStepComponent } from './components/register-step/register-step.component';
 
 
 @NgModule({
@@ -52,15 +54,18 @@ import { PayoutsComponent } from './components/payouts/payouts.component';
     PrivacyComponent,
     TermComponent,
     ListBandsComponent,
-    PayoutsComponent
+    PayoutsComponent,
+    RegisterStepComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormWizardModule,
     FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    FlashMessagesModule
+    FlashMessagesModule,
+    NgbModule.forRoot()
   ],
   providers: [AuthService,AuthGuard, FlashMessagesService],
   bootstrap: [AppComponent]
